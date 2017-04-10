@@ -28,7 +28,7 @@ module.exports = ({mode}) => ({
   ].filter((e) => !!e),
   output: {
     path: join(__dirname, 'dist'),
-    filename: `${mode}-bundle.js?[hash]`,
+    filename: `bundle.js?[hash]`,
     publicPath: '/',
     libraryTarget: mode === 'client' ? 'var' : 'commonjs2'
   },

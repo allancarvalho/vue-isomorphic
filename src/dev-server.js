@@ -14,7 +14,7 @@ app.get('*', function (req, res) {
       <div id="app">
       ${page}
       </div>
-      <script src="client-bundle.js"></script>
+      <script src="bundle.js"></script>
       </body>
       `);
     }).catch(e => {
