@@ -23,12 +23,12 @@ module.exports = ({mode}) => ({
     ]
   },
   entry: [
-    `./src/${mode}.js`,
+    `./src/${mode}/index.js`,
     mode === 'client' ? 'webpack-hot-middleware/client' : null
   ].filter((e) => !!e),
   output: {
-    path: join(__dirname, '..', '..', 'dist'),
-    filename: `bundle.js?[hash]`,
+    path: join(__dirname, 'dist'),
+    filename: `${mode}-bundle.js?[hash]`,
     publicPath: '/',
     libraryTarget: mode === 'client' ? 'var' : 'commonjs2'
   },

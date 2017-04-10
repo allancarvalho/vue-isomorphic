@@ -1,11 +1,27 @@
 const express = require('express');
-const {appRender} = require('./middlewares/vue');
 const {vueDevServer} = require('./middlewares/app');
 
-let app = express();
+const app = express();
 app.use(vueDevServer());
-app.use(appRender());
-
+app.get('*', function (req, res) {
+  req.vue.renderToString({url: req.url})
+    .then((page) => {
+      res.send(`<!DOCTYPE>
+      <html>
+      <head>
+      </head>
+      <body>
+      <div id="app">
+      ${page}
+      </div>
+      <script src="client-bundle.js"></script>
+      </body>
+      `);
+    }).catch(e => {
+      console.log(e);
+      res.status(500).send(`error, ${e}`);
+    })
+});
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });

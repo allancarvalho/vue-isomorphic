@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="inner-app">
     <h1>Random App Title</h1>
     <!-- Routes get rendered here -->
     <router-view></router-view>

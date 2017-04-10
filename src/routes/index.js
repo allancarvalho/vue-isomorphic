@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import foo from './components/foo.vue';
-import bar from './components/bar.vue';
+import foo from '../components/foo.vue';
+import bar from '../components/bar.vue';
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)

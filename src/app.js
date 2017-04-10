@@ -3,8 +3,7 @@ import VueRouter from 'vue-router';
 import router from './routes';
 import Main from './components/main.vue';
 
-const app = new Vue({
+export const app = new Vue({
     router,
-    ...Main
+    render: (h) => h(Main)
 });
-export { app, router };
