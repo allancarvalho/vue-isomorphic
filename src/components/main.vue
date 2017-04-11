@@ -7,3 +7,6 @@
     <router-link to="/foo">Foo</router-link>
   </div>
 </template>
+
+<script>
+</script>

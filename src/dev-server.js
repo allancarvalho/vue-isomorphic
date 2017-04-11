@@ -3,12 +3,17 @@ const {vueDevServer} = require('./middlewares/app');
 
 const app = express();
 app.use(vueDevServer());
-app.get('*', function (req, res) {
-  req.vue.renderToString({url: req.url})
+app.use((req, res) => {
+  let ctx = {url: req.url};
+  req.vue.renderToString(ctx)
     .then((page) => {
+      console.log(ctx);
       res.send(`<!DOCTYPE>
       <html>
       <head>
+      <script>
+        __INITIAL_STATE__ = ${JSON.stringify(ctx.initialState)} 
+      </script>
       </head>
       <body>
       <div id="app">

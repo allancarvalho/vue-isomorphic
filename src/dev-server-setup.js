@@ -25,7 +25,7 @@ function combine(mids) {
 * Development server middleware for serving Vue.js application.
 */
 
-exports.devServer = function ({server, client, verbose=false}={}) {
+exports.devServer = function ({server, client, verbose=false, ctx}={}) {
   let clientConfig = Object.assign({}, client);
   let serverConfig = Object.assign({}, server);
 
